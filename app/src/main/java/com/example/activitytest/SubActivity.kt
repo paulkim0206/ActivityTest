@@ -12,9 +12,11 @@ class SubActivity : AppCompatActivity() {
         binding = ActivitySubBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val gotText = intent.getStringExtra("show")
+        binding.textView.text = gotText.toString()
+
         binding.btnClose.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            finish()
         }
     }
 }

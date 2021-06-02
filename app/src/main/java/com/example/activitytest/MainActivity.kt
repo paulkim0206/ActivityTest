@@ -13,9 +13,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val secondIntent = Intent(this,SubActivity::class.java)
+
         binding.btnGoSubActivity.setOnClickListener {
-            val intent = Intent(this,SubActivity::class.java)
-            startActivity(intent)
+            val putText: String = binding.editText.text.toString()
+            secondIntent.putExtra("show", putText)
+            startActivity(secondIntent)
         }
     }
 }
