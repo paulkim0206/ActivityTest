@@ -3,6 +3,7 @@ package com.example.activitytest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.activitytest.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,9 +17,16 @@ class MainActivity : AppCompatActivity() {
         val secondIntent = Intent(this,SubActivity::class.java)
 
         binding.btnGoSubActivity.setOnClickListener {
-            val putText: String = binding.editText.text.toString()
-            secondIntent.putExtra("show", putText)
-            startActivity(secondIntent)
+            var putText: String = binding.editText.text.toString()
+
+            if (putText=="1234") {
+                secondIntent.putExtra("show", putText)
+                startActivity(secondIntent)
+            } else {
+                Toast.makeText(this, "비밀번호가 틀렸습니다!", Toast.LENGTH_SHORT).show()
+            }
+
+
         }
     }
 }

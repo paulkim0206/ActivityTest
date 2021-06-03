@@ -13,7 +13,7 @@ class SubActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val gotText = intent.getStringExtra("show")
-        binding.textView.text = gotText.toString()
+        binding.textView.text = "비밀번호는 " + gotText + " 입니다."
 
         binding.btnClose.setOnClickListener {
             finish()
